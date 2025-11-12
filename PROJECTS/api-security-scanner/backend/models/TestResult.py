@@ -8,7 +8,7 @@ from sqlalchemy import (
     Enum,
     Integer,
     Text,
-    ForeignKey,    
+    ForeignKey,
 )
 from sqlalchemy.orm import relationship
 from sqlalchemy.dialects.postgresql import JSON
@@ -25,39 +25,35 @@ class TestResult(BaseModel):
     """
     Stores individual test results for each security scan
     """
+
     __tablename__ = "test_results"
 
     scan_id = Column(
         Integer,
-        ForeignKey("scans.id",
-                   ondelete = "CASCADE"),
-        nullable = False,
-        index = True,
+        ForeignKey("scans.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
     )
     test_name = Column(
         Enum(TestType),
-        nullable = False,
-        index = True,
+        nullable=False,
+        index=True,
     )
     status = Column(
         Enum(ScanStatus),
-        nullable = False,
-        index = True,
+        nullable=False,
+        index=True,
     )
     severity = Column(
         Enum(Severity),
-        nullable = False,
-        index = True,
+        nullable=False,
+        index=True,
     )
-    details = Column(Text, nullable = False)
-    evidence_json = Column(JSON, nullable = False, default = dict)
-    recommendations_json = Column(
-        JSON,
-        nullable = False,
-        default = list
-    )
+    details = Column(Text, nullable=False)
+    evidence_json = Column(JSON, nullable=False, default=dict)
+    recommendations_json = Column(JSON, nullable=False, default=list)
 
-    scan = relationship("Scan", back_populates = "test_results")
+    scan = relationship("Scan", back_populates="test_results")
 
     def __repr__(self) -> str:
         """

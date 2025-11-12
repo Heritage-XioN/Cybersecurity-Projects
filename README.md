@@ -822,5 +822,3 @@ A  collection of tools, courses, frameworks, and educational resources for cyber
 - Use practice exams to measure progress
 - Join communities for support and networking
 - Stay current with security news and trends
-
-

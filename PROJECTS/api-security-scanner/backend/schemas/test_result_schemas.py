@@ -22,19 +22,21 @@ class TestResultCreate(BaseModel):
     """
     Schema for creating a new test result (used by scanners)
     """
+
     test_name: TestType
     status: ScanStatus
     severity: Severity
     details: str
-    evidence_json: dict[str, Any] = Field(default_factory = dict)
-    recommendations_json: list[str] = Field(default_factory = list)
+    evidence_json: dict[str, Any] = Field(default_factory=dict)
+    recommendations_json: list[str] = Field(default_factory=list)
 
 
 class TestResultResponse(BaseModel):
     """
     Schema for individual test result in API responses
     """
-    model_config = ConfigDict(from_attributes = True)
+
+    model_config = ConfigDict(from_attributes=True)
 
     id: int
     scan_id: int

@@ -17,16 +17,17 @@ class User(BaseModel):
     """
     Stores authentication credentials and user information
     """
+
     __tablename__ = "users"
 
     email = Column(
         String(settings.EMAIL_MAX_LENGTH),
-        unique = True,
-        nullable = False,
-        index = True,
+        unique=True,
+        nullable=False,
+        index=True,
     )
-    hashed_password = Column(String, nullable = False)
-    is_active = Column(Boolean, default = True, nullable = False)
+    hashed_password = Column(String, nullable=False)
+    is_active = Column(Boolean, default=True, nullable=False)
 
     def __repr__(self) -> str:
         """
