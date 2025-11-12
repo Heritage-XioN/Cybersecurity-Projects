@@ -27,7 +27,7 @@
 
 ---
 
-# Projects (Each Links To Their Respective Brief instructions)
+# Projects (Each Links To Their Brief Instructions)
 
 ## Beginner Projects
 
