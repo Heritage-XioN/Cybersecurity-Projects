@@ -26,9 +26,9 @@
 
 ---
 
-# Projects 👻
+# Projects 
 
-## 🔰 Beginner Projects
+## Beginner Projects
 
 ### [Simple Port Scanner](https://github.com/CarterPerez-dev/Cybersecurity-Projects/blob/main/SYNOPSES/beginner/Simple.Port.Scanner.md)
 Build a Python script using the `socket` library to test common ports (22, 80, 443, 3306, etc.) on a target IP. Implement threading or asyncio to scan multiple ports concurrently for speed. Add service detection by analyzing banner responses from open ports.
