@@ -36,6 +36,7 @@ Build a Python script using the `socket` library to test common ports (22, 80, 4
 
 ### [Keylogger](https://github.com/CarterPerez-dev/Cybersecurity-Projects/blob/main/SYNOPSES/beginner/Keylogger.md)
 Use Python's `pynput` library to capture keyboard events and log them to a local file with timestamps. Include a toggle key (like F12) to start/stop logging. **Important**: Add clear disclaimers and only test on systems you own.
+*FULLY BUILT HERE:* https://github.com/CarterPerez-dev/Cybersecurity-Projects/tree/main/PROJECTS/keylogger
 
 ### [Caesar Cipher](https://github.com/CarterPerez-dev/Cybersecurity-Projects/blob/main/SYNOPSES/beginner/Caesar.Cipher.md)
 Create a CLI tool that shifts characters by a specified number (the "key") to encrypt/decrypt text. Implement both encryption and brute-force decryption (try all 26 possible shifts). Bonus: Add support for preserving spaces and punctuation.
