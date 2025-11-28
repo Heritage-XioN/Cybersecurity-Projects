@@ -1,5 +1,5 @@
 # 60 Cybersecurity Projects & 10 Certification Roadmaps by Role 🧙‍♂️
-## 2 of these projects I've fully built for you, with full source code and documentation so you can clone, learn, and customize!
+- So far I've fully built 3 projects for you, with full source code and documentation so you can clone, learn, and customize!
 ---
 # View complete projects: [Projects/](./PROJECTS/)
 
