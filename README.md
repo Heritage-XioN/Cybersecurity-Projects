@@ -1,6 +1,5 @@
 <div align="center">
-  <img width="348" height="348" alt="kali-linux-icon" src="https://github.com/user-attachments/assets/db5a4119-3f3e-40a1-9974-d126acf8ee24" />
-   alt="Kali Linux Icon"/>
+  <img width="2048" height="2048" alt="Kali-dragon-icon svg" src="https://github.com/user-attachments/assets/d911b71f-6ad9-45b7-9513-237f83377023" alt="Kali Linux Icon"/>
   <h2 align="center">Cybersecurity Projects 🐉</h2>
   <p align="center">60 Cybersecurity Projects, Certification Roadmaps & Resources</p>
 </div>
