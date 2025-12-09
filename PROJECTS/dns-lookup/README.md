@@ -164,6 +164,9 @@ just ci
 | `just ci` | Run all checks |
 | `just clean` | Remove cache files |
 
+## Few Examples
+<img width="723" height="1020" alt="Screenshot_20251209_104948" src="https://github.com/user-attachments/assets/1fa34d17-1756-41b7-af61-e6a2c3897473" />
+<img width="740" height="1080" alt="Screenshot_20251209_105052" src="https://github.com/user-attachments/assets/2ec4c7ac-7c3e-4936-af78-b2e65814cffa" />
 
 ## License
 
