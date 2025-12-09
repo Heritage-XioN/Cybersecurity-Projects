@@ -6,7 +6,7 @@
 </div>
 <div align="center">
 
-![GitHub stars](https://img.shields.io/github/stars/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=yellow)
+![GitHub stars](https://img.shields.io/github/stars/CarterPerez-dev/Cybersecurity-Projects?)
 ![GitHub forks](https://img.shields.io/github/forks/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=blue)
 ![GitHub issues](https://img.shields.io/github/issues/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=green)
 ![GitHub license](https://img.shields.io/github/license/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=orange)
