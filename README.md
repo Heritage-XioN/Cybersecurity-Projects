@@ -1,6 +1,38 @@
-# 60 Cybersecurity Projects & 10 Certification Roadmaps by Role 🧙‍♂️
-- So far I've fully built 3 projects for you, with full source code and documentation so you can clone, learn, and customize!
-- As time goes on I will fully build each and every one of these projects so all 60 are available with full source code and documentation. (3/60)
+<div align="center">
+  <img width="140" src="<img width="348" height="348" alt="kali-linux-icon" src="https://github.com/user-attachments/assets/db5a4119-3f3e-40a1-9974-d126acf8ee24" />
+"  alt="Kali Linux Icon"/>
+  <h2 align="center">Cybersecurity Projects 🐉</h2>
+  <p align="center">60 Cybersecurity Projects, Certification Roadmaps & Resources</p>
+</div>
+<div align="center">
+
+![GitHub stars](https://img.shields.io/github/stars/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=yellow)
+![GitHub forks](https://img.shields.io/github/forks/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=blue)
+![GitHub issues](https://img.shields.io/github/issues/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=green)
+![GitHub license](https://img.shields.io/github/license/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=orange)
+![Cybersecurity](https://img.shields.io/badge/Cybersecurity-60_Projects-red?style=for-the-badge&logo=hackaday&logoColor=white)
+![Security Focus](https://img.shields.io/badge/Security-Learning_Resources-darkred?style=for-the-badge&logo=keycdn&logoColor=white)
+
+</div>
+<p align="center">
+ So far I've fully built 3 projects for you, with full source code and documentation so you can clone, learn, and customize!❤️
+</p>
+<div align="center">
+  <a href="https://github.com/sponsors/CarterPerez-dev">
+    <img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=ff69b4" alt="Sponsor"/>
+  </a>
+</div>  
+
+</div>
+<p align="center">
+ As time goes on I will fully build each and every one of these projects so all 60 are available with full source code and documentation.(3/60) Feel free to contribute!🧙 
+</p>
+<div align="center">
+  <a href="https://github.com/sponsors/CarterPerez-dev">
+    <img src="https://img.shields.io/static/v1?label=Contribute&message=%E2%9D%A4&logo=GitHub&color=#0205b5" alt="contribute"/>
+  </a>
+</div>
+
 ---
 # View complete projects: [Projects/](./PROJECTS/)
 ---
