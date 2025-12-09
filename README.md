@@ -1,17 +1,17 @@
 <div align="center">
-  <img width="140" src="<img width="348" height="348" alt="kali-linux-icon" src="https://github.com/user-attachments/assets/db5a4119-3f3e-40a1-9974-d126acf8ee24" />
-"  alt="Kali Linux Icon"/>
+  <img width="348" height="348" alt="kali-linux-icon" src="https://github.com/user-attachments/assets/db5a4119-3f3e-40a1-9974-d126acf8ee24" />
+   alt="Kali Linux Icon"/>
   <h2 align="center">Cybersecurity Projects 🐉</h2>
   <p align="center">60 Cybersecurity Projects, Certification Roadmaps & Resources</p>
 </div>
 <div align="center">
 
-![GitHub stars](https://img.shields.io/github/stars/CarterPerez-dev/Cybersecurity-Projects?)
-![GitHub forks](https://img.shields.io/github/forks/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=blue)
-![GitHub issues](https://img.shields.io/github/issues/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=green)
-![GitHub license](https://img.shields.io/github/license/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=orange)
-![Cybersecurity](https://img.shields.io/badge/Cybersecurity-60_Projects-red?style=for-the-badge&logo=hackaday&logoColor=white)
-![Security Focus](https://img.shields.io/badge/Security-Learning_Resources-darkred?style=for-the-badge&logo=keycdn&logoColor=white)
+![GitHub stars](https://img.shields.io/github/stars/CarterPerez-dev/Cybersecurity-Projects?style=for-the-badge&color=yellow)
+![GitHub forks](https://img.shields.io/github/forks/CarterPerez-dev/Cybersecurity-Projects?)
+![GitHub issues](https://img.shields.io/github/issues/CarterPerez-dev/Cybersecurity-Projects?)
+![GitHub license](https://img.shields.io/github/license/CarterPerez-dev/Cybersecurity-Projects?)
+![Cybersecurity](https://img.shields.io/badge/Cybersecurity-60_Projects-red?)
+![Security Focus](https://img.shields.io/badge/Security-Learning_Resources-darkred?)
 
 </div>
 <p align="center">
