@@ -28,7 +28,7 @@
 </p>
 <div align="center">
   <a href="https://github.com/sponsors/CarterPerez-dev">
-    <img src="https://img.shields.io/static/v1?label=Contribute&message=%02%0a%52&logo=GitHub&color=#020a52" alt="contribute"/>
+    <img src="https://img.shields.io/static/v1?label=Contribute&message=%E2%9D%A4&logo=GitHub&color=#darkgreen" alt="contribute"/>
   </a>
 </div>
 
