@@ -38,14 +38,14 @@ go build -o docksec ./cmd/docksec
 
 This builds a binary in the current directory. The `./` is required because the binary is not in your PATH.
 
-### Option 2: Go install (for Go developers)
+### Option 2: Go install (for Go developers) This same project lives in a seperate repo https://github.com/CarterPerez-dev/docksec - in order to be able to:
 
 ```bash
 go install github.com/CarterPerez-dev/docksec/cmd/docksec@latest
 docksec scan
 ```
 
-This downloads the source, compiles it on your machine, and puts the binary in `~/go/bin/`. If that directory is in your PATH, you can run `docksec` directly without `./`.
+Because downloads the source, compiles it on your machine, and puts the binary in `~/go/bin/`. If that directory is in your PATH, you can run `docksec` directly without `./`.
 
 The `/cmd/docksec` path is needed because the main package lives in that subdirectory, not at the repo root.
 
