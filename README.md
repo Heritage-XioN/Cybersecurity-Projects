@@ -51,7 +51,7 @@
 
 # Projects 
 ### *Each link to their brief instructions or source code*
-
+---
 ## Beginner Projects
 
 ### *SOURCE CODE:* *[Simple Port Scanner](https://github.com/CarterPerez-dev/Cybersecurity-Projects/tree/main/PROJECTS/simple-port-scanner)*
