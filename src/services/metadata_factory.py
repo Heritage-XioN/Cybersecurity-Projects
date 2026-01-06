@@ -54,7 +54,6 @@ class MetadataFactory:
             # elif ext == ".pptx":
             #     return PowerPointHandler(filepath)
             else:
-                print("i ran")
                 raise UnsupportedFormatError(
                     f"No handler defined for {ext} files. we curently only support {supported_extensions} files."
                 )
