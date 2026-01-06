@@ -13,10 +13,9 @@ from src.main import app
 
 runner = CliRunner()
 
-# Test file paths - use examples folder for faster tests (fewer files)
-JPG_TEST_FILE = r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images\DSCN0012.jpg"
-PNG_TEST_FILE = r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images\generated_test_45.png"
-# Use examples folder (small) instead of full test_images folder (100+ files)
+# Test file paths
+JPG_TEST_FILE = r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images\test_fuji.jpg"
+PNG_TEST_FILE = r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images\generated_test_03.png"
 EXAMPLES_DIR = (
     r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images"
 )

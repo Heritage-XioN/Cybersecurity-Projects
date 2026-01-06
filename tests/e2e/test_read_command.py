@@ -8,8 +8,8 @@ from src.main import app
 runner = CliRunner()
 
 # Test file paths
-JPG_TEST_FILE = r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images\DSCN0012.jpg"
-PNG_TEST_FILE = r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images\generated_test_45.png"
+JPG_TEST_FILE = r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images\test_fuji.jpg"
+PNG_TEST_FILE = r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images\generated_test_03.png"
 TEST_DIR = r"C:\Users\Xheri\development\metadata-scrubber-tool\tests\assets\test_images"
 
 
