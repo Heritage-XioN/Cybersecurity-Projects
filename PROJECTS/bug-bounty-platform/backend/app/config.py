@@ -191,10 +191,6 @@ class Settings(BaseSettings):
         if self.ENVIRONMENT == Environment.PRODUCTION:
             if self.DEBUG:
                 raise ValueError("DEBUG must be False in production")
-            if self.CORS_ORIGINS == ["*"]:
-                raise ValueError(
-                    "CORS_ORIGINS cannot be ['*'] in production"
-                )
         return self
 
 
