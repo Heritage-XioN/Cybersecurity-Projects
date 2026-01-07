@@ -7,7 +7,7 @@ must implement the read, wipe, and save methods.
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, Optional
+from typing import Any
 
 
 class MetadataHandler(ABC):
@@ -32,11 +32,11 @@ class MetadataHandler(ABC):
             filepath: Path to the file to process.
         """
         self.filepath = filepath
-        self.metadata: Dict[str, Any] = {}
-        self.processed_metadata: Dict[str, Any] = {}
+        self.metadata: dict[str, Any] = {}
+        self.processed_metadata: dict[str, Any] = {}
 
     @abstractmethod
-    def read(self) -> Dict[str, Any]:
+    def read(self) -> dict[str, Any]:
         """
         Extract metadata from the file.
 
@@ -61,7 +61,7 @@ class MetadataHandler(ABC):
         pass
 
     @abstractmethod
-    def save(self, output_path: Optional[str] = None) -> None:
+    def save(self, output_path: str | None = None) -> None:
         """
         Save the processed file with cleaned metadata.
 

@@ -36,7 +36,7 @@ def read(
         raise typer.BadParameter("If you provide --recursive or -r, you must also provide --extension or -ext.")
     if ext and not recursive:
         raise typer.BadParameter("If you provide --extension or -ext, you must also provide --recursive or -r.")
-    
+
     for file in get_target_files(file_path, ext) if recursive else [file_path]:
         try:
             # Get the correct object from the factory

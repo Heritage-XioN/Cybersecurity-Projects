@@ -50,10 +50,10 @@ def main(
         help="Show detailed debug logs for every file processed.",
     ),
     version: bool = typer.Option(
-        None, 
-        "--version", 
-        "-v", 
-        callback=version_callback, 
+        None,
+        "--version",
+        "-v",
+        callback=version_callback,
         is_eager=True,
         help="Show the application version and exit."
     ),

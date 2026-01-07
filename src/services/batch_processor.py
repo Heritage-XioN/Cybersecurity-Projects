@@ -10,10 +10,10 @@ of large batches (1000+ files).
 
 import logging
 import threading
+from collections.abc import Callable, Iterable
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Callable, Iterable, List, Optional
 
 from rich.console import Console
 
@@ -30,8 +30,8 @@ class FileResult:
     filepath: Path
     success: bool
     action: str  # "scrubbed", "skipped", "dry-run"
-    output_path: Optional[Path] = None
-    error: Optional[str] = None
+    output_path: Path | None = None
+    error: str | None = None
 
 
 @dataclass
@@ -43,8 +43,8 @@ class BatchSummary:
     skipped: int = 0
     failed: int = 0
     dry_run: bool = False
-    output_dir: Optional[Path] = None
-    results: List[FileResult] = field(default_factory=list)
+    output_dir: Path | None = None
+    results: list[FileResult] = field(default_factory=list)
 
 
 class BatchProcessor:
@@ -58,7 +58,7 @@ class BatchProcessor:
 
     def __init__(
         self,
-        output_dir: Optional[str] = None,
+        output_dir: str | None = None,
         dry_run: bool = False,
         max_workers: int = 4,
     ):
@@ -73,7 +73,7 @@ class BatchProcessor:
         self.output_dir = Path(output_dir) if output_dir else Path("./scrubbed")
         self.dry_run = dry_run
         self.max_workers = max_workers
-        self.results: List[FileResult] = []
+        self.results: list[FileResult] = []
 
         # Thread synchronization
         self._path_lock = threading.Lock()  # Protects unique path generation
@@ -92,7 +92,7 @@ class BatchProcessor:
         Returns:
             FileResult with success status and details.
         """
-        output_path: Optional[Path] = None  # Track reserved path for cleanup
+        output_path: Path | None = None  # Track reserved path for cleanup
 
         try:
             # Dry-run mode: just report what would happen
@@ -151,8 +151,8 @@ class BatchProcessor:
     def process_batch(
         self,
         files: Iterable[Path],
-        progress_callback: Optional[Callable[[FileResult], None]] = None,
-    ) -> List[FileResult]:
+        progress_callback: Callable[[FileResult], None] | None = None,
+    ) -> list[FileResult]:
         """
         Process multiple files concurrently using ThreadPoolExecutor.
 
@@ -184,7 +184,7 @@ class BatchProcessor:
 
         return self.results
 
-    def process_batch_sequential(self, files: Iterable[Path]) -> List[FileResult]:
+    def process_batch_sequential(self, files: Iterable[Path]) -> list[FileResult]:
         """
         Process files sequentially (legacy behavior for debugging).
 
@@ -228,7 +228,7 @@ class BatchProcessor:
         with self._results_lock:
             self.results.append(result)
 
-    def _cleanup_reserved_path(self, output_path: Optional[Path]) -> None:
+    def _cleanup_reserved_path(self, output_path: Path | None) -> None:
         """
         Remove empty placeholder file created during path reservation.
 

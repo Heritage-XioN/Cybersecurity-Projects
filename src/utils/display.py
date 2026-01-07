@@ -5,7 +5,7 @@ This module provides functions for displaying metadata and batch processing
 results in beautifully formatted tables and panels using the Rich library.
 """
 
-from typing import Any, Dict
+from typing import Any
 
 from rich import box
 from rich.console import Console
@@ -18,7 +18,7 @@ from src.utils.formatter import clean_value
 console = Console()
 
 
-def print_metadata_table(metadata: Dict[str, Any]):
+def print_metadata_table(metadata: dict[str, Any]):
     """
     Display metadata in a formatted table organized by logical groups.
 

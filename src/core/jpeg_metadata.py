@@ -5,9 +5,22 @@ This module provides the JpegProcessor class which handles EXIF metadata
 extraction and manipulation for JPEG images using the piexif library.
 """
 
-import piexif  # pyright: ignore[reportMissingTypeStubs]
+from typing import TypedDict
+
+import piexif
+from PIL import Image
 
 from src.utils.exceptions import MetadataNotFoundError, MetadataProcessingError
+
+# Type alias for EXIF tag values (strings, bytes, ints, tuples, or lists)
+ExifValue = str | bytes | int | tuple[object, ...] | list[object]
+
+
+class JpegMetadataResult(TypedDict):
+    """Return type for JpegProcessor.get_metadata()."""
+
+    data: dict[str, ExifValue]
+    tags_to_delete: list[int]
 
 
 class JpegProcessor:
@@ -24,10 +37,10 @@ class JpegProcessor:
 
     def __init__(self):
         """Initialize the JPEG processor with empty data structures."""
-        self.tags_to_delete = []
-        self.data = {}
+        self.tags_to_delete: list[int] = []
+        self.data: dict[str, ExifValue] = {}
 
-    def get_metadata(self, img):
+    def get_metadata(self, img: Image.Image) -> JpegMetadataResult:
         """
         Extract EXIF metadata from a JPEG image.
 
@@ -51,10 +64,11 @@ class JpegProcessor:
 
             # Iterate through the IFD
             for tag, tag_value in exif_dict[ifd].items():
-                tag_info = piexif.TAGS[ifd].get(tag, {})
+                ifd_tags = piexif.TAGS.get(ifd, {})
+                tag_info = ifd_tags.get(tag, {}) if isinstance(ifd_tags, dict) else {}
 
                 # Get the human-readable name for the tag
-                tag_name = (
+                tag_name = str(
                     tag_info.get("name", "Unknown Tag") if tag_info else "Unknown Tag"
                 )
 
@@ -72,7 +86,7 @@ class JpegProcessor:
 
         return {"data": self.data, "tags_to_delete": self.tags_to_delete}
 
-    def delete_metadata(self, img, tags_to_delete):
+    def delete_metadata(self, img: Image.Image, tags_to_delete: list[int]):
         """
         Remove specified EXIF tags from a JPEG image.
 

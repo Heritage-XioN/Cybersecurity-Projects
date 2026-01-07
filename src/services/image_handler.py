@@ -8,7 +8,7 @@ format-specific processors (JpegProcessor, PngProcessor).
 
 import shutil
 from pathlib import Path
-from typing import Optional
+from typing import Any, cast
 
 import piexif  # pyright: ignore[reportMissingTypeStubs]
 from PIL import Image
@@ -48,13 +48,13 @@ class ImageHandler(MetadataHandler):
             filepath: Path to the image file to process.
         """
         super().__init__(filepath)
-        self.processors = {
+        self.processors: dict[str, JpegProcessor | PngProcessor] = {
             "jpeg": JpegProcessor(),
             "png": PngProcessor(),
         }
-        self.tags_to_delete = []
-        self.detected_format: Optional[str] = None
-        self.text_keys_to_delete = []
+        self.tags_to_delete: list[int] = []
+        self.detected_format: str | None = None
+        self.text_keys_to_delete: list[str] = []
 
     def _detect_format(self) -> str:
         """
@@ -101,7 +101,8 @@ class ImageHandler(MetadataHandler):
             self.metadata = result["data"]
             self.tags_to_delete = result["tags_to_delete"]
             # Store text keys for PNG processing
-            self.text_keys_to_delete = result.get("text_keys", [])
+            if isinstance(result, PngProcessor):
+                self.text_keys_to_delete = result.get("text_keys", [])
             return self.metadata
 
     def wipe(self) -> None:
@@ -120,18 +121,16 @@ class ImageHandler(MetadataHandler):
             raise UnsupportedFormatError(f"Unsupported format: {self.detected_format}")
 
         with Image.open(Path(self.filepath)) as img:
-            self.processed_metadata = processor.delete_metadata(
-                img, self.tags_to_delete
+            self.processed_metadata = cast(
+                dict[str, Any], processor.delete_metadata(img, self.tags_to_delete)
             )
             # For PNG, also get clean PngInfo
-            if self.detected_format == "png" and hasattr(
-                processor, "get_clean_pnginfo"
-            ):
+            if isinstance(processor, PngProcessor):
                 self.clean_pnginfo = processor.get_clean_pnginfo(
                     img, self.text_keys_to_delete
                 )
 
-    def save(self, output_path: Optional[str | Path] = None) -> None:
+    def save(self, output_path: str | Path | None = None) -> None:
         """
         Writes the changes to a copy of the original file.
 

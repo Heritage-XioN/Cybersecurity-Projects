@@ -6,7 +6,7 @@ extraction and manipulation for PNG images, including both EXIF data
 and PNG textual metadata (PngInfo chunks).
 """
 
-from typing import Any, Dict, List, Optional
+from typing import Any
 
 from PIL import ExifTags, PngImagePlugin
 from PIL.Image import Exif, Image
@@ -44,11 +44,11 @@ class PngProcessor:
 
     def __init__(self):
         """Initialize the PNG processor with empty data structures."""
-        self.tags_to_delete: List[int] = []
-        self.text_keys_to_delete: List[str] = []
-        self.data: Dict[str, Any] = {}
+        self.tags_to_delete: list[int] = []
+        self.text_keys_to_delete: list[str] = []
+        self.data: dict[str, Any] = {}
 
-    def get_metadata(self, img: Image) -> Dict[str, Any]:
+    def get_metadata(self, img: Image) -> dict[str, Any]:
         """
         Extract metadata from a PNG image.
 
@@ -112,7 +112,7 @@ class PngProcessor:
             "text_keys": self.text_keys_to_delete,
         }
 
-    def delete_metadata(self, img: Image, tags_to_delete: List[int]) -> Exif:
+    def delete_metadata(self, img: Image, tags_to_delete: list[int]) -> Exif:
         """
         Remove EXIF tags from a PNG image.
 
@@ -143,8 +143,8 @@ class PngProcessor:
             raise MetadataProcessingError(f"Error processing PNG EXIF: {str(e)}")
 
     def get_clean_pnginfo(
-        self, img: Image, keys_to_remove: Optional[List[str]] = None
-    ) -> Optional[PngImagePlugin.PngInfo]:
+        self, img: Image, keys_to_remove: list[str] | None = None
+    ) -> PngImagePlugin.PngInfo | None:
         """
         Create a new PngInfo with sensitive keys removed.
 

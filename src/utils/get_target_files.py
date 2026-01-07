@@ -5,8 +5,8 @@ This module provides functions to find and yield files for processing,
 supporting recursive directory traversal with extension filtering.
 """
 
+from collections.abc import Generator
 from pathlib import Path
-from typing import Generator
 
 
 def get_target_files(input_path_str: Path, ext: str) -> Generator[Path, None, None]:
