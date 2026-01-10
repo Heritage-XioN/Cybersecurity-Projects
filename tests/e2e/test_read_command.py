@@ -144,3 +144,29 @@ def test_read_command_recursive_pptx_success():
 
     assert result.exit_code == 0, f"Failed with: {result.stdout}"
     assert "Reading" in result.stdout
+
+
+# ============== Word Document Tests ==============
+
+
+def test_read_command_docx_single_file_success():
+    """Test the 'read' command with a single Word document file."""
+    from tests.conftest import get_docx_test_file
+
+    DOCX_TEST_FILE = get_docx_test_file()
+    result = runner.invoke(app, ["read", DOCX_TEST_FILE])
+
+    assert result.exit_code == 0, f"Failed with: {result.stdout}"
+    assert "Reading" in result.stdout
+    assert Path(DOCX_TEST_FILE).name in result.stdout
+
+
+def test_read_command_recursive_docx_success():
+    """Test the 'read' command with recursive Word document directory processing."""
+    from tests.conftest import get_test_docx_dir
+
+    DOCX_DIR = get_test_docx_dir()
+    result = runner.invoke(app, ["read", DOCX_DIR, "-r", "-ext", "docx"])
+
+    assert result.exit_code == 0, f"Failed with: {result.stdout}"
+    assert "Reading" in result.stdout

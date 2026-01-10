@@ -276,3 +276,70 @@ def test_scrub_command_pptx_with_workers(output_dir):
     )
 
     assert result.exit_code == 0, f"Failed with: {result.stdout}"
+
+
+# ============== Word Document Tests ==============
+
+
+def test_scrub_command_docx_single_file_success(output_dir):
+    """Test the 'scrub' command with a single Word document file."""
+    from tests.conftest import get_docx_test_file
+
+    DOCX_TEST_FILE = get_docx_test_file()
+    result = runner.invoke(app, ["scrub", DOCX_TEST_FILE, "--output", str(output_dir)])
+
+    assert result.exit_code == 0, f"Failed with: {result.stdout}"
+    output_file = output_dir / f"processed_{Path(DOCX_TEST_FILE).name}"
+    assert output_file.exists()
+
+
+def test_scrub_command_recursive_docx_success(output_dir):
+    """Test the 'scrub' command with recursive directory processing for Word documents."""
+    from tests.conftest import get_test_docx_dir
+
+    DOCX_DIR = get_test_docx_dir()
+    result = runner.invoke(
+        app, ["scrub", DOCX_DIR, "-r", "-ext", "docx", "--output", str(output_dir)]
+    )
+
+    assert result.exit_code == 0, f"Failed with: {result.stdout}"
+    output_files = list(output_dir.glob("processed_*.docx"))
+    assert len(output_files) > 0
+
+
+def test_scrub_command_docx_dry_run(output_dir):
+    """Test that --dry-run doesn't create Word document files."""
+    from tests.conftest import get_docx_test_file
+
+    DOCX_TEST_FILE = get_docx_test_file()
+    result = runner.invoke(
+        app, ["scrub", DOCX_TEST_FILE, "--output", str(output_dir), "--dry-run"]
+    )
+
+    assert result.exit_code == 0, f"Failed with: {result.stdout}"
+    assert "DRY-RUN" in result.stdout
+    output_file = output_dir / f"processed_{Path(DOCX_TEST_FILE).name}"
+    assert not output_file.exists()
+
+
+def test_scrub_command_docx_with_workers(output_dir):
+    """Test the --workers option for concurrent Word document processing."""
+    from tests.conftest import get_test_docx_dir
+
+    DOCX_DIR = get_test_docx_dir()
+    result = runner.invoke(
+        app,
+        [
+            "scrub",
+            DOCX_DIR,
+            "-r",
+            "-ext",
+            "docx",
+            "--output",
+            str(output_dir),
+            "--workers",
+            "2",
+        ],
+    )
+
+    assert result.exit_code == 0, f"Failed with: {result.stdout}"

@@ -242,6 +242,65 @@ def test_pptx_format_detection():
     assert handler._detect_format() == "pptx"
 
 
+# ============== Word Document Tests ==============
+
+
+def test_read_docx_metadata_via_factory():
+    """Test reading Word document metadata through MetadataFactory."""
+    from src.services.worddoc_handler import WorddocHandler
+    from tests.conftest import get_docx_test_file
+
+    DOCX_TEST_FILE = get_docx_test_file()
+    assert Path(DOCX_TEST_FILE).exists(), f"Test file not found: {DOCX_TEST_FILE}"
+
+    handler = MetadataFactory.get_handler(DOCX_TEST_FILE)
+    assert isinstance(handler, WorddocHandler)
+
+    metadata = handler.read()
+    assert handler.metadata == metadata
+    assert isinstance(metadata, dict)
+
+
+def test_wipe_docx_metadata_via_factory():
+    """Test wiping Word document metadata through MetadataFactory."""
+    from tests.conftest import get_docx_test_file
+
+    DOCX_TEST_FILE = get_docx_test_file()
+    handler = MetadataFactory.get_handler(DOCX_TEST_FILE)
+    handler.read()
+    handler.wipe()
+
+    assert handler.processed_metadata is not None
+
+
+def test_save_processed_docx_metadata_via_factory():
+    """Test saving processed Word document metadata through MetadataFactory."""
+    from tests.conftest import get_docx_test_file
+
+    DOCX_TEST_FILE = get_docx_test_file()
+    output_dir = Path("./tests/assets/output")
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    handler = MetadataFactory.get_handler(DOCX_TEST_FILE)
+    handler.read()
+    handler.wipe()
+
+    output_file = output_dir / Path(DOCX_TEST_FILE).name
+    handler.save(str(output_file))
+
+    assert output_file.exists()
+    shutil.rmtree(output_dir)
+
+
+def test_docx_format_detection():
+    """Test format detection for Word document files."""
+    from tests.conftest import get_docx_test_file
+
+    DOCX_TEST_FILE = get_docx_test_file()
+    handler = MetadataFactory.get_handler(DOCX_TEST_FILE)
+    assert handler._detect_format() == "docx"
+
+
 # ============== Error Tests ==============
 
 

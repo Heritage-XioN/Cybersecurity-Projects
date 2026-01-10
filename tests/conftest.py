@@ -137,3 +137,35 @@ def get_large_pptx_test_file() -> str:
 def get_test_pptx_dir() -> str:
     """Get test PPTX directory path as string."""
     return str(TEST_PPTX_DIR)
+
+
+# Word document fixtures
+TEST_DOCX_DIR = ASSETS_DIR / "test_docx"
+
+
+@pytest.fixture
+def docx_test_file() -> Path:
+    """Return path to a DOCX test file with metadata."""
+    return TEST_DOCX_DIR / "file-sample_500kB.docx"
+
+
+@pytest.fixture
+def test_docx_dir() -> Path:
+    """Return path to test DOCX directory."""
+    return TEST_DOCX_DIR
+
+
+# String versions for parametrize (Word document)
+def get_docx_test_file() -> str:
+    """Get DOCX test file path as string."""
+    return str(TEST_DOCX_DIR / "file-sample_500kB.docx")
+
+
+def get_large_docx_test_file() -> str:
+    """Get large DOCX test file path as string."""
+    return str(TEST_DOCX_DIR / "file-sample_1MB.docx")
+
+
+def get_test_docx_dir() -> str:
+    """Get test DOCX directory path as string."""
+    return str(TEST_DOCX_DIR)
